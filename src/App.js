@@ -1,28 +1,40 @@
 import React, { Component } from 'react';
-import './App.css';
+import axios from 'axios';
+
 import Header from './Components/Header';
+import Form from './Components/Form';
 import Posts from './Components/Posts';
-import { Form } from './Components/Form';
+
 import './bootstrap.min.css';
+import './App.css';
 
 class App extends Component {
 	state = {
-		posts: [],
-		domain: ''
+		posts   : [],
+		domain  : null,
+		loading : null
 	};
 
-	fetchPosts = (url) => {
-		fetch(url).then((response) => response.json()).then((response) => {
-			this.setState({
-				posts: response
-			});
-		});
-	};
-
-	postsURL = (url, showPosts) => {
+	postsURL = (urls, showPosts) => {
+		let url = urls.value;
 		let postsURL = `${url}wp-json/wp/v2/posts?per_page=${showPosts}`;
-		this.setState({ domain: url });
-		this.fetchPosts(postsURL);
+		this.setState({
+			domain  : urls,
+			loading : true
+		});
+
+		// Fetch Post from final URL.
+		axios
+			.get(postsURL)
+			.then((res) =>
+				this.setState({
+					posts   : res.data,
+					loading : false
+				})
+			)
+			.catch(function(error) {
+				console.log(error);
+			});
 	};
 
 	render() {
@@ -31,7 +43,7 @@ class App extends Component {
 				<div className="container">
 					<Header />
 					<Form postsURL={this.postsURL} />
-					<Posts posts={this.state.posts} domain={this.state.domain} />
+					<Posts posts={this.state.posts} domain={this.state.domain} loading={this.state.loading} />
 				</div>
 			</div>
 		);

@@ -1,14 +1,40 @@
 import React, { Component } from 'react';
-import SinglePost from './SinglePost';
+import Post from './Post';
 
 export class Posts extends Component {
 	render() {
-		return (
-			<div>
-				{this.props.posts[0] ? <h1>Some Post from {this.props.domain}</h1> : ''}
-				<SinglePost posts={this.props.posts} />
-			</div>
-		);
+		let { posts, loading, domain } = this.props;
+		let postLoop = posts.map((post, index) => {
+			return <Post key={index} post={post} />;
+		});
+		// return <div>{postLoop}</div>;
+
+		if (posts.length === 0 || loading) {
+			if (loading) {
+				return (
+					<h2>
+						Loading Post form{' '}
+						{domain !== null && domain.label === domain.value ? (
+							domain.label
+						) : (
+							`${domain.label} (${domain.value})`
+						)}
+					</h2>
+				);
+			} else {
+				return <h2>Plz Select or add you domain.</h2>;
+			}
+		} else {
+			return (
+				<React.Fragment>
+					<h2>
+						{posts.length} Posts from{' '}
+						{domain.label === domain.value ? domain.label : `${domain.label} (${domain.value})`}
+					</h2>
+					<div>{postLoop}</div>
+				</React.Fragment>
+			);
+		}
 	}
 }
 
