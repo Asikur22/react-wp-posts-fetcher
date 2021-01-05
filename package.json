@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"homepage": "https://asikur22.github.io/react-wp-posts-fetcher/",
 	"dependencies": {
-		"axios": "^0.19.0",
+		"axios": "^0.21.1",
 		"is-url": "^1.2.4",
 		"react": "^16.8.6",
 		"react-dom": "^16.8.6",
