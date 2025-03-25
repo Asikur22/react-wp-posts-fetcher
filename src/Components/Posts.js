@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Post from './Post';
+import React, { Component } from "react";
+import Post from "./Post";
 
 export class Posts extends Component {
 	render() {
@@ -7,31 +7,23 @@ export class Posts extends Component {
 		let postLoop = posts.map((post, index) => {
 			return <Post key={index} post={post} />;
 		});
-		// return <div>{postLoop}</div>;
 
 		if (posts.length === 0 || loading) {
 			if (loading) {
 				return (
 					<h2>
-						Loading Post form{' '}
-						{domain !== null && domain.label === domain.value ? (
-							domain.label
-						) : (
-							`${domain.label} (${domain.value})`
-						)}
+						Loading posts
+						{domain !== null ? " form " + domain : ""}
 					</h2>
 				);
-			} else {
-				return <h2>Plz Select or add you domain.</h2>;
 			}
 		} else {
 			return (
 				<React.Fragment>
 					<h2>
-						{posts.length} Posts from{' '}
-						{domain.label === domain.value ? domain.label : `${domain.label} (${domain.value})`}
+						{posts.length} Posts {domain !== null ? " form " + domain : ""}
 					</h2>
-					<div>{postLoop}</div>
+					<div className="mb-5">{postLoop}</div>
 				</React.Fragment>
 			);
 		}

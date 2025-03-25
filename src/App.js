@@ -5,7 +5,7 @@ import Header from './Components/Header';
 import Form from './Components/Form';
 import Posts from './Components/Posts';
 
-import './bootstrap.min.css';
+import './assets/bootstrap.min.css';
 import './App.css';
 
 class App extends Component {
@@ -15,11 +15,10 @@ class App extends Component {
 		loading : null
 	};
 
-	postsURL = (urls, showPosts) => {
-		let url = urls.value;
+	postsURL = (url, showPosts) => {
 		let postsURL = `${url}wp-json/wp/v2/posts?per_page=${showPosts}`;
 		this.setState({
-			domain  : urls,
+			domain  : url,
 			loading : true
 		});
 
@@ -33,7 +32,7 @@ class App extends Component {
 				})
 			)
 			.catch(function(error) {
-				console.log(error);
+				console.error(error);
 			});
 	};
 

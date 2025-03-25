@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
-import Creatable from 'react-select/lib/Creatable';
 import isUrl from 'is-url';
-
-const options = [
-	{ label: 'Localhost', value: 'http://localhost:3000/' },
-	{ label: 'Asique', value: 'https://asique.net/' },
-	{ label: 'Green Life IT', value: 'https://greenlifeit.com/' },
-	{ label: 'Paira Studios', value: 'https://www.pairastudios.com/' }
-];
 
 export class Form extends Component {
 	state = {
-		domain    : null,
+		domain    : '',
 		showPosts : '5'
 	};
 
@@ -19,10 +11,11 @@ export class Form extends Component {
 		event.preventDefault();
 
 		let { domain, showPosts } = this.state;
-		if (domain && isUrl(domain.value) && showPosts) {
-			if (domain.value.substr(-1) !== '/') {
-				domain.value += '/';
+		if (domain && isUrl(domain) && showPosts) {
+			if (domain.substr(-1) !== '/') {
+				domain += '/';
 			}
+
 			this.props.postsURL(domain, showPosts);
 			this.setState({ domain: '' });
 		} else {
@@ -33,10 +26,6 @@ export class Form extends Component {
 	onChange = (event) => {
 		let { name, value } = event.target;
 		this.setState({ [name]: value });
-	};
-
-	handleChange = (domain) => {
-		this.setState({ domain });
 	};
 
 	render() {
@@ -52,32 +41,18 @@ export class Form extends Component {
 		const { domain } = this.state;
 
 		return (
-			<form onSubmit={this.onSubmit}>
+			<form className="mt-3" onSubmit={this.onSubmit}>
 				<div className="row">
 					<div className="col-6">
-						<label htmlFor="domain">Select Domain: </label>
-						<Creatable
-							name="domain"
-							id="domain"
-							value={domain}
-							onChange={this.handleChange}
-							options={options}
-							autoFocus={true}
-							isSearchable={true}
-						/>
+						<label htmlFor="domain">Enter URL: </label>
+						<input type="url" name="domain" id="domain" value={domain} onChange={this.onChange} autoFocus={true} className="form-control" isSearchable={true} />
 						<small>You can add custom WordPress site url. Like (http://yoursite.com/)</small>
 					</div>
 					<div className="col-6">
-						<label style={{ marginLeft: '20px' }} htmlFor="showPosts">
-							Show Posts:{' '}
+						<label style={{ marginLeft: "20px" }} htmlFor="showPosts">
+							Show Posts:
 						</label>
-						<select
-							value={this.state.showPosts}
-							name="showPosts"
-							id="showPosts"
-							onChange={this.onChange}
-							className="form-control"
-						>
+						<select value={this.state.showPosts} name="showPosts" id="showPosts" onChange={this.onChange} className="form-control">
 							{n}
 						</select>
 					</div>
