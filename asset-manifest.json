@@ -1,15 +1,13 @@
 {
   "files": {
-    "main.css": "/react-wp-posts-fetcher/static/css/main.1314e0b8.chunk.css",
-    "main.js": "/react-wp-posts-fetcher/static/js/main.5ab6e50d.chunk.js",
-    "main.js.map": "/react-wp-posts-fetcher/static/js/main.5ab6e50d.chunk.js.map",
-    "runtime~main.js": "/react-wp-posts-fetcher/static/js/runtime~main.f7f466e3.js",
-    "runtime~main.js.map": "/react-wp-posts-fetcher/static/js/runtime~main.f7f466e3.js.map",
-    "static/js/2.35833772.chunk.js": "/react-wp-posts-fetcher/static/js/2.35833772.chunk.js",
-    "static/js/2.35833772.chunk.js.map": "/react-wp-posts-fetcher/static/js/2.35833772.chunk.js.map",
+    "main.css": "/react-wp-posts-fetcher/static/css/main.9059c08d.css",
+    "main.js": "/react-wp-posts-fetcher/static/js/main.bdef40ce.js",
     "index.html": "/react-wp-posts-fetcher/index.html",
-    "precache-manifest.653b497a160635bf1aabe62dfc19fdf3.js": "/react-wp-posts-fetcher/precache-manifest.653b497a160635bf1aabe62dfc19fdf3.js",
-    "service-worker.js": "/react-wp-posts-fetcher/service-worker.js",
-    "static/css/main.1314e0b8.chunk.css.map": "/react-wp-posts-fetcher/static/css/main.1314e0b8.chunk.css.map"
-  }
+    "main.9059c08d.css.map": "/react-wp-posts-fetcher/static/css/main.9059c08d.css.map",
+    "main.bdef40ce.js.map": "/react-wp-posts-fetcher/static/js/main.bdef40ce.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9059c08d.css",
+    "static/js/main.bdef40ce.js"
+  ]
 }
