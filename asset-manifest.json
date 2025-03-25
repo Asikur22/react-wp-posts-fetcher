@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/react-wp-posts-fetcher/static/css/main.9059c08d.css",
-    "main.js": "/react-wp-posts-fetcher/static/js/main.bdef40ce.js",
+    "main.js": "/react-wp-posts-fetcher/static/js/main.491dbe24.js",
     "index.html": "/react-wp-posts-fetcher/index.html",
     "main.9059c08d.css.map": "/react-wp-posts-fetcher/static/css/main.9059c08d.css.map",
-    "main.bdef40ce.js.map": "/react-wp-posts-fetcher/static/js/main.bdef40ce.js.map"
+    "main.491dbe24.js.map": "/react-wp-posts-fetcher/static/js/main.491dbe24.js.map"
   },
   "entrypoints": [
     "static/css/main.9059c08d.css",
-    "static/js/main.bdef40ce.js"
+    "static/js/main.491dbe24.js"
   ]
 }
